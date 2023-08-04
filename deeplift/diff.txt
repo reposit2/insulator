@@ -1,0 +1,161 @@
+Python 3.8.12 (default, Mar 26 2023, 11:03:20)
+
+ls -l /home/user/.pyenv/versions/3.8.12/lib/python3.8/site-packages
+drwxrwxr-x  6 user user   4096  3月 28 12:34 deeplift
+drwxrwxr-x  2 user user   4096  3月 28 12:28 deeplift-0.6.13.0.dist-info
+drwxrwxr-x  6 user user   4096  3月 28 12:34 deeplift_org
+
+ls -l deeplift
+-rw-rw-r-- 1 user user    25  3月 28 12:28 __init__.py
+drwxrwxr-x 2 user user  4096  3月 28 12:28 __pycache__
+drwxrwxr-x 3 user user  4096  3月 30 17:39 conversion
+-rw-rw-r-- 1 user user  8449  3月 28 12:28 dinuc_shuffle.py
+drwxrwxr-x 3 user user  4096  3月 30 18:11 layers
+-rw-rw-r-- 1 user user 11042  3月 28 12:28 models.py
+-rw-rw-r-- 1 user user 18550  3月 28 12:28 util.py
+drwxrwxr-x 3 user user  4096  3月 28 12:28 visualization
+
+ls -l deeplift_org/
+-rw-rw-r-- 1 user user    25  3月 28 12:28 __init__.py
+drwxrwxr-x 2 user user  4096  3月 28 12:28 __pycache__
+drwxrwxr-x 3 user user  4096  3月 28 18:07 conversion
+-rw-rw-r-- 1 user user  8449  3月 28 12:28 dinuc_shuffle.py
+drwxrwxr-x 3 user user  4096  3月 28 12:28 layers
+-rw-rw-r-- 1 user user 11042  3月 28 12:28 models.py
+-rw-rw-r-- 1 user user 18550  3月 28 12:28 util.py
+drwxrwxr-x 3 user user  4096  3月 28 12:28 visualization
+
+
+diff deeplift/conversion/kerasapi_conversion.py deeplift_org/conversion/kerasapi_conversion.py
+386,387d385
+<         if 'input' in layer_name:
+<             continue
+389,390c387,388
+<             ("Layer "+str(layer_name)+" is in the layer names but not in the "
+<              +" weights file which has layer names "+str(model_weights.keys()))
+---
+>             ("Layer "+layer_name+" is in the layer names but not in the "
+>              +" weights file which has layer names "+model_weights.keys())
+
+diff deeplift/layers/convolutional.py deeplift_org/layers/convolutional.py
+8,9d7
+< tf.compat.v1.disable_v2_behavior()
+< tf.compat.v1.disable_eager_execution()
+93c91
+<         conv_without_bias = tf.compat.v1.nn.conv1d(
+---
+>         conv_without_bias = tf.nn.conv1d(
+253c251
+<         conv_without_bias = tf.compat.v1.nn.conv2d(
+---
+>         conv_without_bias = tf.nn.conv2d(
+281c279
+<                         tf.compat.v1.nn.conv2d_transpose(
+---
+>                         tf.nn.conv2d_transpose(
+288c286
+<                        +tf.compat.v1.nn.conv2d_transpose(
+---
+>                        +tf.nn.conv2d_transpose(
+296c294
+<                         tf.compat.v1.nn.conv2d_transpose(
+---
+>                         tf.nn.conv2d_transpose(
+303c301
+<                        +tf.compat.v1.nn.conv2d_transpose(
+---
+>                        +tf.nn.conv2d_transpose(
+310c308
+<             inp_mxts_increments += zero_inp_mask*tf.compat.v1.nn.conv2d_transpose(
+---
+>             inp_mxts_increments += zero_inp_mask*tf.nn.conv2d_transpose(
+
+diff deeplift/layers/core.py deeplift_org/layers/core.py
+15,16c15
+< tf.compat.v1.disable_v2_behavior()
+< tf.compat.v1.disable_eager_execution()
+---
+> 
+66c65
+<         self._pos_mxts = tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>         self._pos_mxts = tf.zeros_like(tensor=self.get_activation_vars(),
+68c67
+<         self._neg_mxts = tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>         self._neg_mxts = tf.zeros_like(tensor=self.get_activation_vars(),
+208c207
+<         self._activation_vars = tf.compat.v1.placeholder(
+---
+>         self._activation_vars = tf.placeholder(
+216c215
+<         return tf.compat.v1.placeholder(dtype=tf.float32,
+---
+>         return tf.placeholder(dtype=tf.float32,
+456c455
+<              tf.compat.v1.variables_initializer([self.task_vector])) 
+---
+>              tf.variables_initializer([self.task_vector])) 
+472c471
+<         task_vector_update = tf.compat.v1.assign(self.task_vector,
+---
+>         task_vector_update = tf.assign(self.task_vector,
+474c473
+<         task_vector_update = tf.compat.v1.scatter_update(
+---
+>         task_vector_update = tf.scatter_update(
+
+diff deeplift/layers/helper_functions.py deeplift_org/layers/helper_functions.py
+2,4d1
+< tf.compat.v1.disable_v2_behavior()
+< tf.compat.v1.disable_eager_execution()
+< 
+24c21
+<     return tf.squeeze(tf.compat.v1.nn.conv2d_transpose(
+---
+>     return tf.squeeze(tf.nn.conv2d_transpose(
+
+diff deeplift/layers/pooling.py deeplift_org/layers/pooling.py10,11c10
+< tf.compat.v1.disable_v2_behavior()
+< tf.compat.v1.disable_eager_execution()
+---
+> 
+64c63
+<                 tf.compat.v1.nn.max_pool(value=tf.expand_dims(input_act_vars,1),
+---
+>                 tf.nn.max_pool(value=tf.expand_dims(input_act_vars,1),
+74c73
+<         return tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>         return tf.zeros_like(tensor=self.get_activation_vars(),
+76c75
+<                tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>                tf.zeros_like(tensor=self.get_activation_vars(),
+117c116
+<         return tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>         return tf.zeros_like(tensor=self.get_activation_vars(),
+119c118
+<                tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>                tf.zeros_like(tensor=self.get_activation_vars(),
+196,197c195
+< #        width = self._get_input_activation_vars().get_shape().as_list()[1]
+<         width = self._get_input_activation_vars().get_shape().as_list()[2]
+---
+>         width = self._get_input_activation_vars().get_shape().as_list()[1]
+266c264
+<         to_return = tf.compat.v1.nn.max_pool(value=input_act_vars,
+---
+>         to_return = tf.nn.max_pool(value=input_act_vars,
+280c278
+<         return tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>         return tf.zeros_like(tensor=self.get_activation_vars(),
+282c280
+<                tf.compat.v1.zeros_like(tensor=self.get_activation_vars(),
+---
+>                tf.zeros_like(tensor=self.get_activation_vars(),
+
+
