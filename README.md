@@ -25,7 +25,7 @@ R package and library
 * ggpubr
 * broom
 
-DeepLIFT was developed based on TensorFlow 1, and we modified it to work with TensorFlow 2.  
+DeepLIFT was developed based on TensorFlow 1. We have modified it to work with TensorFlow 2 for our analysis.  
 After installing the DeepLIFT package, the package was installed in our Python directory. We copied the original DeepLIFT directory, renamed it to deeplift_org, and modified the codes in it.
 
 ```bash:
