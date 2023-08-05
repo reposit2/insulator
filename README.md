@@ -153,7 +153,8 @@ diff deeplift/layers/pooling.py deeplift_org/layers/pooling.py
 ```
 bash calc_deepliftscore.sh
 bash stat_deepliftscore.sh
-perl stat2_deepliftscore.pl
+perl stat2_deepliftscore.pl 1
+perl stat2_deepliftscore.pl 2
 ```
 
 ### Outputs
