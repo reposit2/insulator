@@ -11,7 +11,7 @@ Ubuntu 20.04, Python 3.8.12, TensorFlow 2.6.3, NVIDIA CUDA toolkit 11.6, GeForce
 (Originally in our paper, Python 3.8.10, TensorFlow 2.6.0, NVIDIA CUDA toolkit 11.4.2)
 
 **Requirements**  
-Download the three data files (data.tgz, mydata1.tgz, mydata2.tgz) from the Zenodo repository ( ), put them in the same directory as the codes in this GitHub repository, and unpack the data with `tar zxf *.tgz`.
+Download the three data files (data.tgz, mydata1.tgz, mydata2.tgz) from the Zenodo repository ( ), put them in the same directory as the codes in this GitHub repository, and extract the data with `tar zxf *.tgz`.
 
 Python package and library  
 * numpy
