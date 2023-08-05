@@ -4,7 +4,7 @@ The purpose of the codes is to demonstrate the prediction of insulator-associate
 
 ### Setup  
 ---  
-**System environments**  
+**System environment**  
 Ubuntu 20.04, Python 3.8.12, TensorFlow 2.6.3, NVIDIA CUDA toolkit 11.6, GeForce RTX 3080 GPU with 10 GB memory, Intel Core i7-10700 CPU with 128 GB memory.  
 (Originally in our paper, Python 3.8.10, TensorFlow 2.6.0, NVIDIA CUDA toolkit 11.4.2)
 
