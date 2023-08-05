@@ -1,36 +1,32 @@
 #!/usr/local/bin/perl
 
-#$infile1 = './mydata1/Btrainoutrfx/stat_out1_rfx_pth00001.txt';
+$s = $ARGV[0];
+
+if ($s == 1) {
+$infile1 = './mydata1/Btrainoutrfx/stat_out1_rfx_pth00001.txt';
+$infile1b = './mydata1/Btrainoutrfx/stat_out3_rfx_pth005.txt';
+$infile2 = './mydata1/Btrainoutfrrf/stat_out1_frrf_pth00001.txt';
+$infile2b = './mydata1/Btrainoutfrrf/stat_out3_frrf_pth005.txt';
+$infile3 = './mydata1/Btrainoutffrf/stat_out1_ffrf_pth00001.txt';
+$infile3b = './mydata1/Btrainoutffrf/stat_out3_ffrf_pth005.txt';
+$infile4 = './mydata1/Btrainoutrrrf/stat_out1_rrrf_pth00001.txt';
+$infile4b = './mydata1/Btrainoutrrrf/stat_out3_rrrf_pth005.txt';
+$outfile = './mydata1/stat/stat_out1_rfx_frrf_ffrf_rrrf_pth005_summary.txt';
+} elsif ($s == 2) {
 $infile1 = './mydata2/Btrainoutrfx/stat_out1_rfx_pth00001.txt';
-
-#$infile1b = './mydata1/Btrainoutrfx/stat_out3_rfx_pth005.txt';
 $infile1b = './mydata2/Btrainoutrfx/stat_out3_rfx_pth005.txt';
-
-#$infile2 = './mydata1/Btrainoutfrrf/stat_out1_frrf_pth00001.txt';
 $infile2 = './mydata2/Btrainoutfrrf/stat_out1_frrf_pth00001.txt';
-
-#$infile2b = './mydata1/Btrainoutfrrf/stat_out3_frrf_pth005.txt';
 $infile2b = './mydata2/Btrainoutfrrf/stat_out3_frrf_pth005.txt';
-
-#$infile3 = './mydata1/Btrainoutffrf/stat_out1_ffrf_pth00001.txt';
 $infile3 = './mydata2/Btrainoutffrf/stat_out1_ffrf_pth00001.txt';
-
-#$infile3b = './mydata1/Btrainoutffrf/stat_out3_ffrf_pth005.txt';
 $infile3b = './mydata2/Btrainoutffrf/stat_out3_ffrf_pth005.txt';
-
-#$infile4 = './mydata1/Btrainoutrrrf/stat_out1_rrrf_pth00001.txt';
 $infile4 = './mydata2/Btrainoutrrrf/stat_out1_rrrf_pth00001.txt';
-
-#$infile4b = './mydata1/Btrainoutrrrf/stat_out3_rrrf_pth005.txt';
 $infile4b = './mydata2/Btrainoutrrrf/stat_out3_rrrf_pth005.txt';
-
-#$outfile = './mydata1/stat/stat_out1_rfx_frrf_ffrf_rrrf_pth005_summary.txt';
 $outfile = './mydata2/stat/stat_out1_rfx_frrf_ffrf_rrrf_pth005_summary.txt';
+} else {
+        exit;
+}
 
-#$pth = 0.001;
-#$pth = 0.0001;
 $pth = 0.05;
-
 $zscf = -1;
 
 open(IN,"$infile1b");
