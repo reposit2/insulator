@@ -1,6 +1,8 @@
 ### Demonstration of prediction of insulator-associated DNA-binding proteins  
 ---  
-The purpose of the codes is to demonstrate the prediction of insulator-associated DNA-binding proteins performed in our paper entitled "Systematic discovery of regulatory motifs associated with human insulator sites reveals the role of directional bias". Due to file size limitations on GitHub, the dataset read from the codes is available from the Zenodo repository ( ). In this demonstration, we analyze known transcription factor and DNA-binding protein CTCF. We used the same method to analyze other DNA-binding proteins.   
+The purpose of the codes is to demonstrate the prediction of insulator-associated DNA-binding proteins performed in our paper entitled "Systematic discovery of regulatory motifs associated with human insulator sites reveals the role of directional bias".  In this demonstration, we calculate the DeepLIFT scores of DNA-binding sites (DBSs) of DNA-binding proteins (DBPs) in putative enhancers and promoters upstream and downstream of each transcript, taking into account the DBSs of known insulator-associated transcription factor and DNA-binding protein CTCF (Fig. 2d and "Prediction of insulator-associated DBPs using DeepLIFT tool" in the Methods section of our paper). We used the same method to analyse other insulator-associated DNA-binding proteins.   
+
+Due to file size limitations on GitHub, the dataset read from the codes is available from the Zenodo repository ( ).  
 
 ### Setup  
 ---  
