@@ -15,19 +15,19 @@ Ubuntu 20.04, Python 3.8.12, TensorFlow 2.6.3, NVIDIA CUDA toolkit 11.6, GeForce
 **Requirements**  
 Download the three data files (data.tgz, mydata1.tgz, mydata2.tgz) from the Zenodo repository ( ), put them in the same directory as the codes in this GitHub repository, and extract the data with `tar zxf *.tgz`.
 
-Python package and library  
-* numpy
-* pandas
-* scipy
-* deeplift
-* yaml
-* h5py
-* tensorflow
+Python package and library (installed version)
+* numpy (1.19.5)
+* pandas (1.3.5)
+* scipy (1.10.1)
+* deeplift (0.6.12.0)
+* yaml (6.0)
+* h5py (3.1.0)
+* tensorflow (2.6.3)
 
-R package and library  
-* tidyverse
-* ggpubr
-* broom
+R package and library  (installed version)
+* tidyverse (2.0.0)
+* ggpubr (0.6.0)
+* broom (1.0.4)
 
 DeepLIFT was developed based on TensorFlow 1. We have modified it to work with TensorFlow 2 for our analysis.  
 After installing the DeepLIFT package, the package was installed in our Python directory. We copied the original DeepLIFT directory, renamed it to deeplift_org, and modified the codes in it.
