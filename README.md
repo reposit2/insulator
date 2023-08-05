@@ -1,6 +1,6 @@
 ### Demonstration of prediction of insulator-associated DNA-binding proteins  
 ---  
-The purpose of the codes is to demonstrate the prediction of insulator-associated DNA-binding proteins performed in our paper entitled "Systematic discovery of regulatory motifs associated with human insulator sites reveals the role of directional bias".  In this demonstration, we calculate the DeepLIFT scores of DNA-binding sites (DBSs) of DNA-binding proteins (DBPs) in putative enhancers and promoters upstream and downstream of each transcript, taking into account the DBSs of known insulator-associated transcription factor and DNA-binding protein CTCF (Fig. 2d and "Prediction of insulator-associated DBPs using DeepLIFT tool" in the Methods section of our paper). We used the same method to analyse other insulator-associated DNA-binding proteins.   
+The purpose of the codes is to demonstrate the prediction of insulator-associated DNA-binding proteins performed in our paper entitled "Systematic discovery of regulatory motifs associated with human insulator sites reveals the role of directional bias".  In this demonstration, we calculate the DeepLIFT scores of DNA-binding sites (DBSs) of DNA-binding proteins (DBPs) in putative enhancers and promoters upstream and downstream of each transcript, taking into account the DBSs of known insulator-associated transcription factor and DBP CTCF (Fig. 2d and "Prediction of insulator-associated DBPs using DeepLIFT tool" in the Methods section of our paper). We used the same method to analyse other insulator-associated DBPs.   
 
 Due to file size limitations on GitHub, the dataset read from the codes is available from the Zenodo repository ( ).  
 
@@ -161,7 +161,7 @@ perl stat2_deepliftscore.pl 2
 
 ### Outputs
 ---
-We analyzed two criteria of DNA-binding sites (DBSs) of CTCF: DBS Selection Criteria S1 and S2, which are shown in our paper (Fig. 4b). Absolute _z_ scores for DBS Selection Criteria S2 are shown in Fig. 3d in the paper.  
+We analysed two criteria of DNA-binding sites (DBSs) of CTCF: DBS Selection Criteria S1 and S2, which are shown in our paper (Fig. 4b). Absolute _z_ scores for DBS Selection Criteria S2 are shown in Fig. 3d in the paper.  
 ```
 perl stat2_deepliftscore.pl 1
 
