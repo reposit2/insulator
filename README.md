@@ -189,9 +189,7 @@ rvalue	0.02214496692055956	0.02006341963250835	0.020128639347794408	0.0116550449
 ### Reference and License
 ---
 * [DEcode](https://github.com/stasaki/decode "DEcode on GitHub")
-  Tasaki, S., Gaiteri, C., Mostafavi, S. & Wang, Y. Deep learning decodes the principles of differential gene expression. Nature Machine Intelligence (2020) [\[link to paper\]](https://doi.org/10.1038/s42256-020-0201-6)
+  Tasaki, S., Gaiteri, C., Mostafavi, S. & Wang, Y. Deep learning decodes the principles of differential gene expression. Nature Machine Intelligence (2020) [\[link to paper\]](https://doi.org/10.1038/s42256-020-0201-6) BSD3 license
 * [DeepLIFT](https://github.com/kundajelab/deeplift "DeepLIFT on GitHub")
-  Avanti Shrikumar, Peyton Greenside, Anshul Kundaje. Learning Important Features Through Propagating Activation Differences (2017) [\[link to paper\]](https://arxiv.org/abs/1704.02685)
+  Avanti Shrikumar, Peyton Greenside, Anshul Kundaje. Learning Important Features Through Propagating Activation Differences (2017) [\[link to paper\]](https://arxiv.org/abs/1704.02685) MIT license
 
-* DEcode BSD3 license
-* DeepLIFT MIT license
