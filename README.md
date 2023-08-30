@@ -4,7 +4,7 @@ The purpose of the codes is to demonstrate the prediction of insulator-associate
 
 In this demonstration, we calculate the DeepLIFT scores of DNA-binding sites (DBSs) of DNA-binding proteins (DBPs) in putative enhancers and promoters upstream and downstream of each transcript, taking into account the DBSs of known insulator-associated DBP CTCF (Fig. 2d and "Prediction of insulator-associated DBPs using DeepLIFT tool" in the Methods section of our paper). We used the same method to analyse other insulator-associated DBPs.  
 
-Due to file size limitations on GitHub, the dataset read from the codes is available from the Zenodo repository ( ).  
+Due to file size limitations on GitHub, the dataset read from the codes is available from the [Zenodo repository](https://doi.org/10.5281/zenodo.8216164).  
 
 ### Setup  
 ---  
@@ -13,7 +13,7 @@ Ubuntu 20.04, Python 3.8.12, TensorFlow 2.6.3, NVIDIA CUDA toolkit 11.6, GeForce
 (Originally in our paper, Python 3.8.10, TensorFlow 2.6.0, NVIDIA CUDA toolkit 11.4.2)
 
 **Requirements**  
-Download the three data files (data.tgz, mydata1.tgz, mydata2.tgz) from the Zenodo repository ( ), put them in the same directory as the codes in this GitHub repository, and extract the data with `tar zxf *.tgz`.
+Download the three data files (data.tgz, mydata1.tgz, mydata2.tgz) from the [Zenodo repository](https://doi.org/10.5281/zenodo.8216164), put them in the same directory as the codes in this GitHub repository, and extract the data with `tar zxf *.tgz`.
 
 Python package and library (installed version)
 * numpy (1.19.5)
