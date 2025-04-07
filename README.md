@@ -1,36 +1,67 @@
-### Demonstration of prediction of insulator-associated DNA-binding proteins  
+## Demonstration: Prediction of Insulator-Associated DNA-Binding Proteins  
+
 ---  
-The purpose of the codes is to demonstrate the prediction of insulator-associated DNA-binding proteins performed in our paper entitled "Systematic discovery of regulatory motifs associated with human insulator sites reveals the role of directional bias".  
 
-In this demonstration, we calculate the DeepLIFT scores of DNA-binding sites (DBSs) of DNA-binding proteins (DBPs) in putative enhancers and promoters upstream and downstream of each transcript, taking into account the DBSs of known insulator-associated DBP CTCF (Fig. 2d and "Prediction of insulator-associated DBPs using DeepLIFT tool" in the Methods section of our paper). We used the same method to analyse other insulator-associated DBPs.  
+This repository provides a demonstration of the prediction of insulator-associated DNA-binding proteins (DBPs), as described in our publication:
 
-Due to file size limitations on GitHub, the dataset read from the codes is available from the [Zenodo repository](https://zenodo.org/record/8216164).  
+"Systematic discovery of directional regulatory motifs associated with human insulator sites."
+[bioRxiv](https://doi.org/10.1101/2024.01.20.573595)
+
+In this demonstration, we calculate DeepLIFT scores for DNA-binding sites (DBSs) of various DBPs in putative enhancers and promoters located upstream and downstream of each transcript. The method includes analysis of the well-known insulator-associated DBP, **CTCF**, as described in Figure 2d and the section *“Prediction of insulator-associated DBPs using the DeepLIFT tool”* in the Methods of our paper. The same approach is applied to other DBPs associated with insulator functions.
+
+Due to file size limitations on GitHub, the required dataset is hosted on Zenodo.
+[Zenodo repository](https://zenodo.org/record/8216164).  
+
+---
 
 ### Setup  
----  
-**System environment**  
-Ubuntu 20.04, Python 3.8.12, TensorFlow 2.6.3, NVIDIA CUDA toolkit 11.6, GeForce RTX 3080 GPU with 10 GB memory, Intel Core i7-10700 CPU with 128 GB memory.  
-(Originally in our paper, Python 3.8.10, TensorFlow 2.6.0, NVIDIA CUDA toolkit 11.4.2)
+  
+#### System Environment  
+- Ubuntu 20.04
+- Python 3.8.12
+- TensorFlow 2.6.3
+- NVIDIA CUDA Toolkit 11.6
+- GPU: GeForce RTX 3080 (10 GB memory)
+- CPU: Intel Core i7-10700 (128 GB memory)
 
-**Requirements**  
-Download the three data files (data.tgz, mydata1.tgz, mydata2.tgz) from the [Zenodo repository](https://doi.org/10.5281/zenodo.8216164), put them in the same directory as the codes in this GitHub repository, and extract the data with `tar zxf *.tgz`.
+(*Note: The original paper used Python 3.8.10, TensorFlow 2.6.0, and CUDA Toolkit 11.4.2.*)
 
-Python package and library (installed version)
-* numpy (1.19.5)
-* pandas (1.3.5)
-* scipy (1.10.1)
-* deeplift (0.6.12.0)
-* yaml (6.0)
-* h5py (3.1.0)
-* tensorflow (2.6.3)
+---
 
-R package and library  (installed version)
-* tidyverse (2.0.0)
-* ggpubr (0.6.0)
-* broom (1.0.4)
+### Requirements
 
-DeepLIFT was developed based on TensorFlow 1. We have modified it to work with TensorFlow 2 for our analysis.  
-After installing the DeepLIFT package, the package was installed in our Python directory. We copied the original DeepLIFT directory, renamed it to deeplift_org, and modified the codes in it.
+#### Data Files
+Please download the following files from the [Zenodo repository](https://doi.org/10.5281/zenodo.8216164)
+
+- `data.tgz`
+- `mydata1.tgz`
+- `mydata2.tgz`
+
+Place all three files in the same directory as this repository, then extract them with the following command:
+
+```bash
+tar zxf *.tgz
+```
+
+#### Python Packages (tested versions)
+- `numpy` (1.19.5)
+- `pandas` (1.3.5)
+- `scipy` (1.10.1)
+- `deeplift` (0.6.12.0)
+- `yaml` (6.0)
+- `h5py` (3.1.0)
+- `tensorflow` (2.6.3)
+
+#### R Packages (tested versions)
+- `tidyverse` (2.0.0)
+- `ggpubr` (0.6.0)
+- `broom` (1.0.4)
+
+---
+
+### Notes on DeepLIFT Compatibility
+The original DeepLIFT package was developed for TensorFlow 1. For this project, we modified the codebase to support TensorFlow 2.
+After installing DeepLIFT, we duplicated the original package directory, renamed it to deeplift_org, and applied our modifications within that directory.
 
 ```bash:
 ls -l /home/user/.pyenv/versions/3.8.12/lib/python3.8/site-packages
@@ -152,8 +183,10 @@ diff deeplift/layers/pooling.py deeplift_org/layers/pooling.py
 - >                tf.zeros_like(tensor=self.get_activation_vars(),
 ```
 
+---
+
 ### Run
----  
+  
 ```
 bash calc_deepliftscore.sh
 bash stat_deepliftscore.sh
@@ -161,9 +194,18 @@ perl stat2_deepliftscore.pl 1
 perl stat2_deepliftscore.pl 2
 ```
 
-### Outputs
 ---
-We analysed two criteria of DNA-binding sites (DBSs) of CTCF: DBS Selection Criteria S1 and S2, which are shown in our paper (Fig. 4b). Absolute _z_ scores for DBS Selection Criteria S2 are shown in Fig. 3d in the paper.  
+
+### Outputs
+
+We analyzed two sets of DNA-binding sites (DBSs) for CTCF, based on the following selection criteria:
+
+- **DBS Selection Criterion S1**
+- **DBS Selection Criterion S2**
+
+These criteria are defined and illustrated in **Supplementary Fig. 1** of our paper.
+The **absolute z-scores** for DBSs selected using **Criterion S2** are shown in **Figure 3d**.
+
 ```
 perl stat2_deepliftscore.pl 1
 
@@ -186,10 +228,23 @@ rvalue	0.02214496692055956	0.02006341963250835	0.020128639347794408	0.0116550449
 #_scores	1211945	684926 	679036 	513268	1133046	648080	646886	677371
 ```
 
-### Reference and License
 ---
-* [DEcode](https://github.com/stasaki/decode "DEcode on GitHub")
-  Tasaki, S., Gaiteri, C., Mostafavi, S. & Wang, Y. Deep learning decodes the principles of differential gene expression. Nature Machine Intelligence (2020) [\[link to paper\]](https://doi.org/10.1038/s42256-020-0201-6) BSD3 license
-* [DeepLIFT](https://github.com/kundajelab/deeplift "DeepLIFT on GitHub")
-  Avanti Shrikumar, Peyton Greenside, Anshul Kundaje. Learning Important Features Through Propagating Activation Differences (2017) [\[link to paper\]](https://arxiv.org/abs/1704.02685) MIT license
+
+### Reference and License
+
+#### DEcode
+Tasaki, S., Gaiteri, C., Mostafavi, S., and Wang, Y.  
+**Deep learning decodes the principles of differential gene expression.**  
+*Nature Machine Intelligence* (2020).  
+[Link to paper](https://doi.org/10.1038/s42256-020-0201-6)  
+License: BSD 3-Clause
+
+#### DeepLIFT
+Shrikumar, A., Greenside, P., and Kundaje, A.  
+**Learning Important Features Through Propagating Activation Differences.**  
+*arXiv* (2017).  
+[Link to paper](https://arxiv.org/abs/1704.02685)
+License: MIT
+
+
 
